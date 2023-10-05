@@ -1,0 +1,23 @@
+
+
+- Los Components son bloques reutilizables de código.
+- Cada Component tiene un archivo HTML, CSS y TypeScript.
+    inicio.html
+    inicio.css
+    inicio.ts
+
+- Los Components sirven para hacer las vistas de la página. Ejemplo: 
+    vista de inicio, 
+    vista de inicio de sesión, 
+    vista de "sobre nosotros",
+    barra de navegación, 
+    galería de imágenes, etc.
+
+
+Para crear un nuevo Component:
+1. Abrir terminal (en Visual Studio Code: CTRL + Ñ)
+2. Escribir:
+    ng generate component Components/nombreDelComponent
+    
+    ejemplo: ng generate component Components/inicio
+             ng generate component Components/sobrenosotros
