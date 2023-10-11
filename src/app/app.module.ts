@@ -13,6 +13,8 @@ import { VolunteerComponent } from './Components/Forms/volunteer/volunteer.compo
 import { NavbarComponent } from './Components/Global/navbar/navbar.component';
 import { FooterComponent } from './Components/Global/footer/footer.component';
 import { CardComponent } from './Components/Global/card/card.component';
+import { EventComponent } from './Components/Forms/event/event.component';
+import { SectionsComponent } from './Components/Forms/sections/sections.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { CardComponent } from './Components/Global/card/card.component';
     NavbarComponent,
     FooterComponent,
     CardComponent,
+    EventComponent,
+    SectionsComponent,
   ],
   imports: [
     BrowserModule,
