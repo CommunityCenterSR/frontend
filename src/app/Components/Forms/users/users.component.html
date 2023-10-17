@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row">
+
+        <!-- Sidebar -->
+        <div class="col-md-3">
+            <app-admin></app-admin>
+        </div>
+        <!-- Sidebar -->
+
+
+        <!-- FORMULARIO DE USUARIOS -->
+        <div class="form-panel col-md-8">
+            <div>
+                <form>
+                    <p class="text-title">Registrar nuevo usuario</p>
+                    <label for="name">Nombre:</label><br>
+                    <input class="form-input" type="text" id="name" name="name"><br>
+
+                    <label for="email">Email:</label><br>
+                    <input class="form-input" type="email" id="email" name="email"><br>
+
+                    <label for="password">Contraseña:</label><br>
+                    <input class="form-input" type="text" id="password" name="password"><br><br>
+
+                    <input type="submit" value="Registrar" name="" id="">
+                </form>
+            </div>
+            <br>
+            <hr>
+
+
+            <p class="text-title">Usuarios registrados</p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td><button type="button" class="btn btn-danger">Eliminar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <br><br><br><br>
+
+        </div>
+        <!-- FIN FORMULARIO DE USUARIOS -->
+
+    </div>
+</div>
+
+<app-footer></app-footer>

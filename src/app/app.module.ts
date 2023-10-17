@@ -15,6 +15,7 @@ import { FooterComponent } from './Components/Global/footer/footer.component';
 import { CardComponent } from './Components/Global/card/card.component';
 import { EventComponent } from './Components/Forms/event/event.component';
 import { SectionsComponent } from './Components/Forms/sections/sections.component';
+import { UsersComponent } from './Components/Forms/users/users.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { SectionsComponent } from './Components/Forms/sections/sections.componen
     CardComponent,
     EventComponent,
     SectionsComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,
