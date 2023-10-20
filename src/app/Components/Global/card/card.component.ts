@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class CardComponent {
 
+  // Para testear las cartas, despues eliminar
+  lista: number[] = [1,1,1,1,1]
+
 }

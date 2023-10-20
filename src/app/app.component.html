@@ -1,3 +1,44 @@
 <app-navbar></app-navbar>
-<router-outlet></router-outlet>
+
+<!-- ------------------------------------------------- -->
+
+
+<p style="margin-left: 30px;" class="d-inline-flex gap-1">
+    <a class="btn btn-danger" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+      VER LISTA DE TAREAS
+    </a>
+  </p>
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+      
+<ul>
+    <p class="hola">LISTA DE TAREAS. link a cada componente</p>
+    <li><a href="navbar">Navbar</a></li>
+    <li><a href="footer">Footer</a></li>
+    <li><a href="home">Página principal</a> <strong>DISEÑO TERMINADO</strong></li>
+    <li><a href="home">Tarjeta evento</a> <strong>DISEÑO TERMINADO</strong></li>
+    <br>
+    <p class="hola">Secciones</p>
+    <li><a href="about-us">Sobre nosotros</a></li>
+    <li><a href="gallery">Galeria</a></li>
+    <li><a href="contact">Contacto</a></li>
+    <br>
+    <p class="hola">Formularios</p>
+    <li><a href="admin/events">Evento</a></li>
+    <li><a href="admin/sections">Editar secciones</a></li>
+    <li><a href="admin/volunteer">Voluntarios</a></li>
+    <li><a href="login">Inicio sesión</a></li>
+</ul>
+    </div>
+  </div>
+
+
+
+<!-- ------------------------------------------------- -->
+
+<router-outlet>
+    <!-- <app-home></app-home> -->
+</router-outlet>
+
+<app-footer></app-footer>
 

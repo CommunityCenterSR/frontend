@@ -31,7 +31,7 @@ const routes: Routes = [
   {path: "navbar", component: NavbarComponent},
   {path: "footer", component: FooterComponent},
 
-  {path: "**", redirectTo: "home"}
+  {path: "**", redirectTo: ""}
 ];
 
 @NgModule({
