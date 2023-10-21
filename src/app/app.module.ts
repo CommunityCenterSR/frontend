@@ -16,6 +16,8 @@ import { CardComponent } from './Components/Global/card/card.component';
 import { EventComponent } from './Components/Forms/event/event.component';
 import { SectionsComponent } from './Components/Forms/sections/sections.component';
 import { UsersComponent } from './Components/Forms/users/users.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { UsersComponent } from './Components/Forms/users/users.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

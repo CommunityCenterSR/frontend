@@ -1,0 +1,13 @@
+.topbar li{
+    
+    display: inline-block;
+    justify-content: right;
+    align-items: flex-end;
+    padding: 2%;
+}
+
+.redes{
+    padding: 10px;
+    position: absolute;
+    width: 100%;
+}
