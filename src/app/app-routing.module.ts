@@ -11,6 +11,7 @@ import { NavbarComponent } from './Components/Global/navbar/navbar.component';
 import { FooterComponent } from './Components/Global/footer/footer.component';
 import { UsersComponent } from './Components/Forms/users/users.component';
 import { EventComponent } from './Components/Forms/event/event.component';
+import { SectionsComponent } from './Components/Forms/sections/sections.component';
 
 const routes: Routes = [
   // Páginas
@@ -24,7 +25,7 @@ const routes: Routes = [
   {path: "login", component: LoginComponent},
   {path: "admin/users", component: UsersComponent},
   {path: "admin/events", component: EventComponent},
-  {path: "admin/sections", component: EventComponent},
+  {path: "admin/sections", component: SectionsComponent},
   {path: "admin/volunteer", component: VolunteerComponent},
 
   // Global
