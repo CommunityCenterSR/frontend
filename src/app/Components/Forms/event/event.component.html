@@ -7,17 +7,41 @@
         </div>
         <!-- Sidebar -->
 
-
-
         <!-- FORMULARIO DE EVENTOS -->
         <div class="form-panel col-md-8">
-            <!-- Escribir el código acá adentro -->
-            <form>
-                
+            <h1>Crear Nuevo Evento</h1>
+            <form id="eventoForm">
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" required><br>
+
+                <label for="descripcionCorta">Descripción Corta:</label>
+                <input type="text" id="descripcionCorta" required><br>
+
+                <label for="descripcionLarga">Descripción Larga:</label><br>
+                <textarea id="descripcionLarga" rows="4" cols="50" required></textarea><br>
+
+                <label for="fechaEvento">Fecha de Evento:</label>
+                <input type="date" id="fechaEvento" required><br>
+
+                <label for="imagen">Imagen (URL):</label>
+                <input type="url" id="imagen" required><br>
+
+                <label for="categoria">Categoría:</label>
+                <select id="categoria" required>
+                    <option value="Merienda">Conferencia</option>
+                    <option value="Donaciones">Reunión</option>
+                    <option value="Rifa">Fiesta</option>
+                    <option value="Otro">Fiesta</option>
+
+                </select><br>
+
+                <label for="importante">¿Es Importante/Urgente?</label>
+                <input type="checkbox" id="importante"><br>
+
+                <button type="submit">Crear Evento</button>
             </form>
         </div>
         <!-- FIN FORMULARIO DE EVENTOS -->
-
 
     </div>
 </div>
