@@ -2,7 +2,7 @@
     <div class="row">
 
         <!-- Sidebar -->
-        <div  style="z-index: 1; margin-right: 20px;" class="col-md-3">
+        <div style="z-index: 1; margin-right: 20px;" class="col-md-3">
             <app-admin></app-admin>
         </div>
         <!-- Sidebar -->
@@ -11,39 +11,37 @@
         <!-- FORMULARIO DE USUARIOS -->
         <div class="form-panel col-md-8">
             <div>
-                <form class="register-form">
-                    <div class="form-1">
-                        <form>
-                            <p class="fs-4">Registrar administrador</p>
-                            <p class="text-title">Nombre de usuario</p>
-                            <input class="form-control input-small" type="text" name="" id="">
+                <form (ngSubmit)="saveUser()" class="register-form" class="form-2">
+                    <p class="fs-2 fw-bold">Registrar administrador</p>
+                    <p class="text-title">Nombre de usuario</p>
+                    <input [(ngModel)]="newUser.name" class="form-control input-small" type="text" name="name" id="">
 
-                            <p class="text-title">Contraseña</p>
-                            <input class="form-control input-small" type="text" name="" id="">
-                            <button class="btn btn-success">Registrar</button>
-                        </form>
-                    </div>
+                    <p class="text-title">Contraseña</p>
+                    <input [(ngModel)]="newUser.password" class="form-control input-small" type="text" name="password"
+                        id="">
+                    <button class="btn btn-success">Registrar</button>
                 </form>
             </div>
 
 
-            <div class="form-2">
-                <p class="fs-4">Administradores registrados</p>
+            <div class="form-1">
+                <p class="fs-2 fw-bold">Administradores registrados</p>
                 <table class="table">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Nombre admin</th>
-                            <th scope="col">Email</th>
+                            <th scope="col">¿Email?</th>
                             <th scope="col">Acción</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th>1</th>
-                            <td>Mark_10</td>
-                            <td>email</td>
-                            <td><button (click)="deleteUser()" type="button" class="btn btn-danger">Eliminar</button></td>
+                        <tr *ngFor="let u of usersRegistered">
+                            <th>{{u.id}}</th>
+                            <td>{{u.name}}</td>
+                            <td>{{u.email}}</td>
+                            <td><button (click)="confirmDelete(u.id)" type="button" class="btn btn-danger">Eliminar</button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
