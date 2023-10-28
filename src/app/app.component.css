@@ -2,3 +2,15 @@
     font-size: 20px;
     font-weight: 1000;
 }
+
+.terminado{
+    color: rgb(9, 226, 9);
+}
+
+.incompleto{
+    color: orange;
+}
+
+.hacer{
+    color: red;
+}
