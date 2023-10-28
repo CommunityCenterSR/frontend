@@ -1,0 +1,59 @@
+/*Variables globales*/
+
+*{
+    padding: 0;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+}
+
+
+
+/*-------------------Estilo de los titulos principales h1 */
+.Main_Titulo{
+    text-align: center;
+    color: rgb(117, 115, 115);
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+}
+/*--------------Estilo de los Parrafos*/
+.Parrafos{
+    font-size: calc(0.5rem + 1vw);
+    color: rgb(117, 115, 115);
+    line-height: 2.4rem;
+    letter-spacing: 1px;
+    word-spacing: 2px ;
+}
+
+
+.logo{
+    border-radius: 15%;
+}
+/*Tamaño de fuente Botonera*/
+.Lista{
+    font-size: 2rem;
+
+}
+
+
+ul li a.cart:hover {
+    text-decoration: none;
+}
+
+ul li a.cart .cart-basket {
+    font-size: .6rem;
+    position: absolute;
+    top: -6px;
+    right: -5px;
+    width: 15px;
+    height: 15px;
+    color: #fff;
+    background: #f00;
+    border-radius: 50%;
+}
+/*Colorear la navbar con verde olivo*/
+.navbar {
+    background-color: #44a43a;
+}
