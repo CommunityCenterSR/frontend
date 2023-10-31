@@ -1,3 +1,4 @@
+
 <div class="container">
     <div class="row">
         <!-- Sidebar -->
@@ -58,7 +59,7 @@
                 <input type="text" id="descripcionCorta" required><br>
 
                 <label for="descripcionLarga">Descripción Larga:</label><br>
-                <textarea id="descripcionLarga" rows="4" cols="50" required></textarea><br>
+                <textarea id="descripcionLarga" rows="4" cols="50" required> Descripción larga...</textarea><br>
 
                 <label for="fechaEvento">Fecha de Evento:</label>
                 <input type="date" id="fechaEvento" required><br>
@@ -79,7 +80,27 @@
                 <input type="checkbox" id="importante"><br>
 
                 <button type="submit">Crear Evento</button>
-            </form> -->
+
+            </form>
+            <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+                <script>
+                    tinymce.init({
+                        selector: '#descripcionLarga',
+                        height: 400,
+                        plugins: 'autoresize lists link',
+                        toolbar: 'undo redo | formatselect | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link',
+                        content_style: 'body { font-family: Arial, sans-serif; font-size: 16px; }',
+                        menubar: false,
+                        statusbar: false,
+                        autoresize_bottom_margin: 20,
+                        valid_elements: '*[*]', // Permite todos los elementos y atributos
+                        valid_children: '+body[style]', // Permite cualquier contenido dentro del body
+                        extended_valid_elements: 'script[src|async|defer|type|charset]',
+                        verify_html: false, // Desactiva la verificación HTML.
+                    });
+                </script>
+            </script>
+
         </div>
         <!-- FIN FORMULARIO DE EVENTOS -->
 
