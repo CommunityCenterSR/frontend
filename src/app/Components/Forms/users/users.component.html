@@ -2,7 +2,7 @@
     <div class="row">
 
         <!-- Sidebar -->
-        <div class="col-md-3">
+        <div style="z-index: 1; margin-right: 20px;" class="col-md-3">
             <app-admin></app-admin>
         </div>
         <!-- Sidebar -->
@@ -11,41 +11,41 @@
         <!-- FORMULARIO DE USUARIOS -->
         <div class="form-panel col-md-8">
             <div>
-                <form class="register-form">
-                    <div class="form">
-                        <strong>Registrar administrador</strong>
-                        <br><br>
-                        <p class="text-body-secondary fw-light">no usar espacios ni acentos en el nombre</p>
-                        <input type="text" placeholder="Nombre de usuario" required>
-                        <!-- <input type="email" placeholder="E-mail" required> -->
-                        <input type="text" placeholder="Contraseña" required>
-                        <button>Registrar</button>
-                        <!-- <p class="message">¿Ya estás registrado? <a href="index.html">Iniciar Sesión</a></p> -->
-                    </div>
+                <form (ngSubmit)="saveUser()" class="register-form" class="form-2">
+                    <p class="fs-2 fw-bold">Registrar administrador</p>
+                    <p class="text-title">Nombre de usuario</p>
+                    <input [(ngModel)]="newUser.name" class="form-control input-small" type="text" name="name" id="">
+
+                    <p class="text-title">Contraseña</p>
+                    <input [(ngModel)]="newUser.password" class="form-control input-small" type="text" name="password"
+                        id="">
+                    <button class="btn btn-success">Registrar</button>
                 </form>
             </div>
-            <hr>
 
 
-            <p class="text-title">Usuarios registrados</p>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Acción</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="form-1">
+                <p class="fs-2 fw-bold">Administradores registrados</p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombre admin</th>
+                            <th scope="col">¿Email?</th>
+                            <th scope="col">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let u of usersRegistered">
+                            <th>{{u.id}}</th>
+                            <td>{{u.name}}</td>
+                            <td>{{u.email}}</td>
+                            <td><button (click)="confirmDelete(u.id)" type="button" class="btn btn-danger">Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             <br><br><br><br>
 
         </div>

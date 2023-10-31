@@ -1,4 +1,4 @@
-.container {
+/* .container {
     position: relative;
     z-index: 1;
     max-width: 500px;
@@ -113,5 +113,32 @@
   .form-panel button:active,
   .form-panel button:focus {
     background: #424242;
-  }
-  
+  } */
+  /* ------------------------------- */
+
+
+  .form-panel{
+    width: 70%;
+    height: 100%;
+    min-width: max-content;
+}
+
+.input-small{
+  width: max-content;
+  margin: 5px 0px 5px 0px;
+}
+
+.text-title{
+  margin: 0;
+  padding: 0;
+}
+
+.form-1{
+  background-color: rgb(204, 204, 204);
+  padding: 10px 0px 10px 30px;
+}
+
+.form-2{
+  background-color: rgb(235, 235, 235);
+  padding: 10px 30px 10px 30px;
+}
