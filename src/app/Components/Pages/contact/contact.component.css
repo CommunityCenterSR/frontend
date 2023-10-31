@@ -1,13 +1,40 @@
-.topbar li{
-    
+.volunteer{
     display: inline-block;
     justify-content: right;
     align-items: flex-end;
     padding: 2%;
 }
 
-.redes{
-    padding: 10px;
-    position: absolute;
-    width: 100%;
+.topbar a{
+    display: inline-block;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding: 2%;
 }
+
+.topbar svg{
+    color:black;
+}
+
+.phone{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    height: 270px;
+}
+
+
+.iframe{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 2%;
+}
+
+.link{
+    color: black;
+    text-decoration: none;
+}
+
