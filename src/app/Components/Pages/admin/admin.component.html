@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row ">
+    <div class="">
 
         <div class="col-md-3">
 
@@ -11,13 +11,23 @@
                     <span class="fs-4">Administrar</span>
                 </a>
                 <hr>
-                <div class="list-group">
-                    <a routerLink="/admin/users" routerLinkActive="active" class="list-group-item list-group-item-action">Usuarios</a>
-
-                    <a routerLink="/admin/events" routerLinkActive="active" class="list-group-item list-group-item-action">Eventos </a>
-                    
-                    <a routerLink="/admin/sections" routerLinkActive="active" class="list-group-item list-group-item-action">Secciones</a>
-                  </div>
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a routerLink="/admin/users" routerLinkActive="active" class="nav-link  text-white">
+                            Usuarios
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/admin/events" routerLinkActive="active" class="nav-link text-white">
+                            Eventos
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/admin/sections" routerLinkActive="active" class="nav-link text-white">
+                            Secciones
+                        </a>
+                    </li>
+                </ul>
                 <hr>
             </div>
 
