@@ -32,10 +32,12 @@
                         <input type="file" accept="image/jpeg, image/png" id="imageInput" name="image">
                         <br><br>
 
-                        <p class="text-title">Categoría</p>
-                        <select name="" id="" style="width: 150px; height: 30px;">
-                            <option value=""></option>
-                        </select>
+                        <label for="categoria">Categoría:</label>
+                            <select id="categoria" required>
+                                <option value="Merienda">Merienda</option>
+                                <option value="Donaciones">Donaciones</option>
+                                <option value="Rifa">Rifa</option>
+                                <option value="Otro">Otro</option>
 
                         <br><br>
                         <input style="width: 20px; height: 20px;" type="checkbox" name="" id="">
@@ -45,44 +47,7 @@
 
                         <button class="btn btn-success">Publicar</button>
                     </form>
-                </div>
-            </form>
-
-
-
-            <!-- <h1>Crear Nuevo Evento</h1>
-            <form id="eventoForm">
-                <label for="titulo">Título:</label>
-                <input type="text" id="titulo" required><br>
-
-                <label for="descripcionCorta">Descripción Corta:</label>
-                <input type="text" id="descripcionCorta" required><br>
-
-                <label for="descripcionLarga">Descripción Larga:</label><br>
-                <textarea id="descripcionLarga" rows="4" cols="50" required> Descripción larga...</textarea><br>
-
-                <label for="fechaEvento">Fecha de Evento:</label>
-                <input type="date" id="fechaEvento" required><br>
-
-                <label for="imagen">Imagen (URL):</label>
-                <input type="url" id="imagen" required><br>
-
-                <label for="categoria">Categoría:</label>
-                <select id="categoria" required>
-                    <option value="Merienda">Donaciones</option>
-                    <option value="Donaciones">Merienda</option>
-                    <option value="Rifa">Rifa</option>
-                    <option value="Otro">Otro</option>
-
-                </select><br>
-
-                <label for="importante">¿Es Importante/Urgente?</label>
-                <input type="checkbox" id="importante"><br>
-
-                <button type="submit">Crear Evento</button>
-
-            </form>
-            <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+                <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
                 <script>
                     tinymce.init({
                         selector: '#descripcionLarga',
@@ -99,10 +64,5 @@
                         verify_html: false, // Desactiva la verificación HTML.
                     });
                 </script>
-            </script>
-
-        </div>
-        <!-- FIN FORMULARIO DE EVENTOS -->
-
-    </div>
+            </form>
 </div>

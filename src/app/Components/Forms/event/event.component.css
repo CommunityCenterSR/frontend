@@ -1,4 +1,4 @@
-/* .container {
+  .container {
     position: relative;
     z-index: 1;
     max-width: 500px;
@@ -55,6 +55,9 @@
     padding: 45px;
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    width: 70%;
+    height: 100%;
+    min-width: max-content;
   }
   
   .form-panel input {
@@ -113,25 +116,17 @@
   .form-panel button:active,
   .form-panel button:focus {
     background: #424242;
-  } */
-  /* ------------------------------- */
-
-
-  .form-panel{
-    width: 70%;
-    height: 100%;
-    min-width: max-content;
-}
-
-.input-small{
+  }
+  
+  .input-small{
   width: max-content;
   margin: 5px 0px 5px 0px;
-}
+  }
 
-.text-title{
+  .text-title{
   margin: 0;
   padding: 0;
-}
+  }
 
 .form-1{
   background-color: rgb(204, 204, 204);
