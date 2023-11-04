@@ -41,11 +41,11 @@
             <div class="form-2">
                 <form (ngSubmit)="saveInfo('instagram')">
                     <p class="fs-2 fw-bold">Redes sociales</p>
-                    <p class="text-title">Instagram</p>
+                    <p class="text-title">WhatsApp</p>
 
-                    <input [(ngModel)]="instagramLink" class="form-control input-small" type="text" name="instagram"
-                        id="" placeholder="Link a instagram">
-                    <button [disabled]="!instagramLink" class="btn btn-success">Actualizar</button><br><br>
+                    <input [(ngModel)]="whatsappLink" class="form-control input-small" type="text" name="instagram"
+                        id="" placeholder="Link a whatsapp">
+                    <button [disabled]="!whatsappLink" class="btn btn-success">Actualizar</button><br><br>
                 </form>
                 <form (ngSubmit)="saveInfo('facebook')">
                     <p class="text-title">Facebook</p>
@@ -58,7 +58,7 @@
 
 
             <div class="form-1" style="padding-right: 30px;">
-                <p class="fs-2 text-title fw-bold">Datos registrados</p>
+                <p class="fs-2 text-title fw-bold">Datos guardados</p>
                 <br>
                 <table class="table">
                     <thead>

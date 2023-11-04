@@ -10,8 +10,8 @@
 
         <!-- FORMULARIO DE USUARIOS -->
         <div class="form-panel col-md-8">
-            <div>
-                <form (ngSubmit)="saveUser()" class="register-form" class="form-2">
+            <div  class="form-2">
+                <form (ngSubmit)="saveUser()" class="register-form">
                     <p class="fs-2 fw-bold">Registrar administrador</p>
                     <p class="text-title">Nombre de usuario</p>
                     <input [(ngModel)]="newUser.name" class="form-control input-small" type="text" name="name" id="">
