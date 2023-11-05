@@ -1,7 +1,7 @@
 
 .form-1{
   background-color: rgb(204, 204, 204);
-  padding: 10px 0px 10px 30px;
+  padding: 10px 30px 10px 30px;
 }
 
 .form-2{
@@ -9,13 +9,25 @@
   padding: 10px 30px 10px 30px;
 }
 
-.button-category{
+.button-new-category{
   background-color: #0084ff; 
   border: none;
   color: white; 
   height: 30px;
+  margin-right: 20px;
 }
 
-.button-category:hover{
+.button-new-category:hover{
   background-color: #0065c4; 
+}
+
+.button-edit-category{
+  background-color: #ffc400; 
+  border: none;
+  color: black; 
+  height: 30px;
+}
+
+.button-edit-category:hover{
+  background-color: #bb9f00; 
 }

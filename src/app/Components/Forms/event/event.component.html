@@ -7,18 +7,27 @@
         <!-- Sidebar -->
 
         <!-- FORMULARIO DE EVENTOS -->
-        <div class="form-panel col-md-8">
+        <div class="form-panel col-md-8" style="overflow: hidden;">
             <div class="form-2">
                 <form>
-                    <p class="fs-2 fw-bold">Crear nuevo evento</p>
+                    <!-- <p class="fs-2 fw-bold">Crear nuevo evento</p> -->
+                    <p [style.color]="event.id == undefined ? 'black' : '#00bd19'" class="fs-2 fw-bold">
+                        {{ event.id == undefined ? 'Crear nuevo evento' : 'Editar evento' }}
+                    </p>
+                    <p *ngIf="event.id !==  undefined">Estás <label style="color: #ff0101;"> editando</label> un evento,
+                        presiona el botón para salir del Modo Edición</p>
+                    <button (click)="exitEditMode()" *ngIf="event.id !==  undefined" class="btn btn-success"
+                        style="margin-bottom: 30px;">Salir de modo edición</button>
+
                     <p class="text-title fs-4">Título</p>
-                    <input class="form-control input-small" type="text" name="" id="">
+                    <input [(ngModel)]="event.title" class="form-control input-small" type="text" name="title" id="">
 
                     <br>
                     <br>
 
                     <p class="text-title fs-4">Subtítulo (máx. 120)</p>
-                    <textarea name="" id="" cols="80" rows="5"></textarea>
+                    <textarea [(ngModel)]="event.shortDescription" maxlength="120" name="shortDescription" id=""
+                        cols="80" rows="5"></textarea>
                     <!-- <editor [init]="{
                             base_url: '/tinymce', 
                             suffix: '.min'        
@@ -29,7 +38,7 @@
                     <br>
 
                     <p class="text-title fs-4">Descripción</p>
-                    <editor [init]="{
+                    <editor [(ngModel)]="event.longDescription" name="longDescription" [init]="{
                             base_url: '/tinymce', 
                             suffix: '.min'        
                           }">
@@ -38,7 +47,8 @@
                     <br>
 
                     <p class="text-title fs-4">Fecha de evento</p>
-                    <input class="form-control input-small" type="datetime-local" name="" id="">
+                    <input [(ngModel)]="event.eventDate" class="form-control input-small" type="datetime-local"
+                        name="eventDate" id="">
                     <br>
 
                     <p class="text-title fs-4">Imagen</p>
@@ -48,25 +58,121 @@
 
                     <label class="fs-4" for="categoria" style="margin-right: 20px;">Categoría:</label>
                     <br>
-                    <select id="categoria" style="width: 150px; margin-right: 20px;" required>
+                    <select [(ngModel)]="event.category.id" name="category" id="categoria"
+                        style="width: 150px; margin-right: 20px;" required>
                         <option value=""></option>
+                        <option *ngFor="let c of categoryList" [value]="c.id">
+                            {{c.name}}
+                        </option>
                     </select>
-                    <button class="button-category" >Crear categoría</button>
+
+                    <label>
+                        <button type="button" class="button-new-category dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-expanded="false" data-bs-auto-close="outside">
+                            Crear categoría
+                        </button>
+                        <form (ngSubmit)="saveCategory()" class="dropdown-menu p-4">
+                            <div class="mb-3">
+                                <label for="exampleDropdownFormEmail2" class="form-label">Nombre</label>
+                                <input [(ngModel)]="newCategoryStringName" type="text" class="form-control" id="categoryName"
+                                    name="newCategoryName">
+                            </div>
+                            <div class="mb-3">
+                            </div>
+                            <button [disabled]="!newCategoryStringName" type="submit" class="btn btn-success">Crear</button>
+                        </form>
+                    </label>
+
+                    <button class="button-edit-category" data-bs-toggle="modal"
+                        data-bs-target="#listCategoryModal">Editar categorías
+                    </button>
                     <br>
                     <br>
 
-                    <input style="width: 20px; height: 20px;" type="checkbox" name="" id="">
+                    <input [(ngModel)]="event.important" type="checkbox" name="importantDate"
+                        style="width: 20px; height: 20px;">
                     &nbsp;
                     <label class="text-title fs-4">Destacado</label>
                     <br>
                     <br>
 
-                    <button class="btn btn-success">Publicar</button>
+                    <button (click)="saveEvent()" [disabled]="!event.title" class="btn btn-success">Publicar</button>
                 </form>
+
+                <!-- FIN FORMULARIO DE EVENTOS -->
             </div>
+        </div>
 
-            <!-- FIN FORMULARIO DE EVENTOS -->
+        <div style="overflow-x: auto;" class="form-1">
 
+            <p class="fs-2 fw-bold">Eventos guardados</p>
+
+            <table class="table table-striped-columns ">
+                <thead>
+                    <tr>
+                        <th scope="col">Categoría</th>
+                        <th scope="col">Título</th>
+                        <th scope="col">Fecha de evento</th>
+                        <th scope="col">Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let e of eventList">
+                        <!-- <td>{{e.category.name}}</td> -->
+                        <td>Categoria</td>
+                        <td>{{e.title}}</td>
+                        <td>{{e.eventDate}}</td>
+
+                        <td>
+                            <button (click)="getEventById(e.id)" class="btn btn-warning">Editar</button>&nbsp;
+                            <button (click)="deleteEvent(e.id)" class="btn btn-danger">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- MODAL DE LISTAR CATEGORÍAS -->
+<div class="modal fade" id="listCategoryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Categorías</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let c of categoryList">
+                            <td>{{c.id}}</td>
+                            <td>{{c.name}}</td>
+                            <td>
+                                <button (click)="deleteCategory(c.id)" class="btn btn-danger">Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
         </div>
     </div>
 </div>
+<!-- ---------------------------- -->
