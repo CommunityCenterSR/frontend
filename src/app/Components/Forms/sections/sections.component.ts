@@ -47,6 +47,8 @@ export class SectionsComponent implements OnInit{
       case "instagram":     this.newInfo.content = this.whatsappLink; break;
       case "facebook":      this.newInfo.content = this.facebookLink;  break;
     }
+    console.log(this.newInfo);
+    
 
     this.sectionService.saveInfo(this.newInfo).subscribe(
       data => {
@@ -54,9 +56,10 @@ export class SectionsComponent implements OnInit{
         this.newInfo = new Section();
         this.getAllInfo();
       },
-      err => console.error(err)
+      err => alert("Error, no se pudo actualizar la información")
     )
   }
+
 
   deleteInfo(infoId: number){
     if(confirm("¿Estás seguro que querés eliminar la información?")){

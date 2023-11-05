@@ -8,62 +8,65 @@
 
         <!-- FORMULARIO DE EVENTOS -->
         <div class="form-panel col-md-8">
-            <form class="register-form">
-                <div class="form-2">
-                    <form>
-                        <p class="fs-2 fw-bold">Crear nuevo evento</p>
-                        <p class="text-title">Título</p>
-                        <input class="form-control input-small" type="text" name="" id="">
+            <div class="form-2">
+                <form>
+                    <p class="fs-2 fw-bold">Crear nuevo evento</p>
+                    <p class="text-title fs-4">Título</p>
+                    <input class="form-control input-small" type="text" name="" id="">
 
-                        <p class="text-title">Subtítulo   (máx. 120)</p>
-                        <textarea name="" id="" cols="50" rows="5"></textarea>
+                    <br>
+                    <br>
 
-                        <p class="text-title">Descripción</p>
-                        <textarea name="" id="" cols="50" rows="5"></textarea>
+                    <p class="text-title fs-4">Subtítulo (máx. 120)</p>
+                    <textarea name="" id="" cols="80" rows="5"></textarea>
+                    <!-- <editor [init]="{
+                            base_url: '/tinymce', 
+                            suffix: '.min'        
+                          }">
+                    </editor> -->
 
-                        <br><br>
-                        <p class="text-title">Fecha de evento</p>
-                        <input class="form-control input-small" type="datetime-local" name="" id="">
+                    <br>
+                    <br>
 
-                        <br>
-                        <p class="text-title">Imagen</p>
-                        <input type="file" accept="image/jpeg, image/png" id="imageInput" name="image">
-                        <br><br>
+                    <p class="text-title fs-4">Descripción</p>
+                    <editor [init]="{
+                            base_url: '/tinymce', 
+                            suffix: '.min'        
+                          }">
+                    </editor>
+                    <br>
+                    <br>
 
-                        <label for="categoria">Categoría:</label>
-                            <select id="categoria" required>
-                                <option value="Merienda">Merienda</option>
-                                <option value="Donaciones">Donaciones</option>
-                                <option value="Rifa">Rifa</option>
-                                <option value="Otro">Otro</option>
+                    <p class="text-title fs-4">Fecha de evento</p>
+                    <input class="form-control input-small" type="datetime-local" name="" id="">
+                    <br>
 
-                        <br><br>
-                        <input style="width: 20px; height: 20px;" type="checkbox" name="" id="">
-                        &nbsp;
-                        <label class="text-title fs-5">Destacado</label>
-                        <br><br>
+                    <p class="text-title fs-4">Imagen</p>
+                    <input type="file" accept="image/jpeg, image/png" id="imageInput" name="image">
+                    <br>
+                    <br>
 
-                        <button class="btn btn-success">Publicar</button>
-                    </form>
-                <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+                    <label class="fs-4" for="categoria" style="margin-right: 20px;">Categoría:</label>
+                    <br>
+                    <select id="categoria" style="width: 150px; margin-right: 20px;" required>
+                        <option value=""></option>
+                    </select>
+                    <button class="button-category" >Crear categoría</button>
+                    <br>
+                    <br>
 
-                <script>
-                    tinymce.init({
-                        selector: 'textarea',
-                        height: 400,
-                        plugins: 'autoresize lists link',
-                        toolbar: 'undo redo | formatselect | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | link',
-                        content_style: 'body { font-family: Arial, sans-serif; font-size: 16px; }',
-                        menubar: false,
-                        statusbar: false,
-                        autoresize_bottom_margin: 20,
-                        valid_elements: '*[*]', // Permite todos los elementos y atributos
-                        valid_children: '+body[style]', // Permite cualquier contenido dentro del body
-                        extended_valid_elements: 'script[src|async|defer|type|charset]',
-                        verify_html: false, // Desactiva la verificación HTML.
-                    });
-                      </script>
+                    <input style="width: 20px; height: 20px;" type="checkbox" name="" id="">
+                    &nbsp;
+                    <label class="text-title fs-4">Destacado</label>
+                    <br>
+                    <br>
+
+                    <button class="btn btn-success">Publicar</button>
+                </form>
+            </div>
+
             <!-- FIN FORMULARIO DE EVENTOS -->
 
- </div>
- </form>
+        </div>
+    </div>
+</div>
