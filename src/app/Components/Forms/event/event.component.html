@@ -1,139 +1,131 @@
-<div class="container">
-    <div class="row">
-        <!-- Sidebar -->
-        <div class="col-md-3">
-            <app-admin></app-admin>
-        </div>
-        <!-- Sidebar -->
 
-        <!-- FORMULARIO DE EVENTOS -->
-        <div class="form-panel col-md-8" style="overflow: hidden;">
-            <div class="form-2">
-                <form>
-                    <!-- <p class="fs-2 fw-bold">Crear nuevo evento</p> -->
-                    <p [style.color]="event.id == undefined ? 'black' : '#00bd19'" class="fs-2 fw-bold">
-                        {{ event.id == undefined ? 'Crear nuevo evento' : 'Editar evento' }}
-                    </p>
-                    <p *ngIf="event.id !==  undefined">Estás <label style="color: #ff0101;"> editando</label> un evento,
-                        presiona el botón para salir del Modo Edición</p>
-                    <button (click)="exitEditMode()" *ngIf="event.id !==  undefined" class="btn btn-success"
-                        style="margin-bottom: 30px;">Salir de modo edición</button>
 
-                    <p class="text-title fs-4">Título</p>
-                    <input [(ngModel)]="event.title" class="form-control input-small" type="text" name="title" id="">
+    <!-- FORMULARIO DE EVENTOS -->
+    <div class="form-panel col-md-12" style="overflow: hidden;">
+        <div class="form-2">
+            <form>
+                <!-- <p class="fs-2 fw-bold">Crear nuevo evento</p> -->
+                <p [style.color]="event.id == undefined ? 'black' : '#00bd19'" class="fs-2 fw-bold">
+                    {{ event.id == undefined ? 'Crear nuevo evento' : 'Editar evento' }}
+                </p>
+                <p *ngIf="event.id !==  undefined">Estás <strong style="color: #00bb1f;"> editando</strong> un evento,
+                    presiona el botón para salir del Modo Edición</p>
+                <button (click)="exitEditMode()" *ngIf="event.id !==  undefined" class="btn btn-danger"
+                    style="margin-bottom: 30px;">Salir de modo edición</button>
 
-                    <br>
-                    <br>
+                <p class="text-title fs-4">Título</p>
+                <input [(ngModel)]="event.title" class="form-control input-small" type="text" name="title" id="">
 
-                    <p class="text-title fs-4">Subtítulo (máx. 120)</p>
-                    <textarea [(ngModel)]="event.shortDescription" maxlength="120" name="shortDescription" id=""
-                        cols="80" rows="5"></textarea>
-                    <!-- <editor [init]="{
+                <br>
+                <br>
+
+                <p class="text-title fs-4">Subtítulo (máx. 120)</p>
+                <textarea [(ngModel)]="event.shortDescription" maxlength="120" name="shortDescription" id="" cols="80"
+                    rows="5"></textarea>
+                <!-- <editor [init]="{
                             base_url: '/tinymce', 
                             suffix: '.min'        
                           }">
                     </editor> -->
 
-                    <br>
-                    <br>
+                <br>
+                <br>
 
-                    <p class="text-title fs-4">Descripción</p>
-                    <editor [(ngModel)]="event.longDescription" name="longDescription" [init]="{
+                <p class="text-title fs-4">Descripción</p>
+                <editor [(ngModel)]="event.longDescription" name="longDescription" [init]="{
                             base_url: '/tinymce', 
                             suffix: '.min'        
                           }">
-                    </editor>
-                    <br>
-                    <br>
+                </editor>
+                <br>
+                <br>
 
-                    <p class="text-title fs-4">Fecha de evento</p>
-                    <input [(ngModel)]="event.eventDate" class="form-control input-small" type="datetime-local"
-                        name="eventDate" id="">
-                    <br>
+                <p class="text-title fs-4">Fecha de evento</p>
+                <input [(ngModel)]="event.eventDate" class="form-control input-small" type="datetime-local"
+                    name="eventDate" id="">
+                <br>
 
-                    <p class="text-title fs-4">Imagen</p>
-                    <input type="file" accept="image/jpeg, image/png" id="imageInput" name="image">
-                    <br>
-                    <br>
+                <p class="text-title fs-4">Imagen</p>
+                <input type="file" accept="image/jpeg, image/png" id="imageInput" name="image">
+                <br>
+                <br>
 
-                    <label class="fs-4" for="categoria" style="margin-right: 20px;">Categoría:</label>
-                    <br>
-                    <select [(ngModel)]="event.category.id" name="category" id="categoria"
-                        style="width: 150px; margin-right: 20px;" required>
-                        <option value=""></option>
-                        <option *ngFor="let c of categoryList" [value]="c.id">
-                            {{c.name}}
-                        </option>
-                    </select>
+                <label class="fs-4" for="categoria" style="margin-right: 20px;">Categoría:</label>
+                <br>
+                <select [(ngModel)]="event.category.id" name="category" id="categoria"
+                    style="width: 150px; margin-right: 20px;" required>
+                    <option value=""></option>
+                    <option *ngFor="let c of categoryList" [value]="c.id">
+                        {{c.name}}
+                    </option>
+                </select>
 
-                    <label>
-                        <button type="button" class="button-new-category dropdown-toggle" data-bs-toggle="dropdown"
-                            aria-expanded="false" data-bs-auto-close="outside">
-                            Crear categoría
-                        </button>
-                        <form (ngSubmit)="saveCategory()" class="dropdown-menu p-4">
-                            <div class="mb-3">
-                                <label for="exampleDropdownFormEmail2" class="form-label">Nombre</label>
-                                <input [(ngModel)]="newCategoryStringName" type="text" class="form-control" id="categoryName"
-                                    name="newCategoryName">
-                            </div>
-                            <div class="mb-3">
-                            </div>
-                            <button [disabled]="!newCategoryStringName" type="submit" class="btn btn-success">Crear</button>
-                        </form>
-                    </label>
-
-                    <button class="button-edit-category" data-bs-toggle="modal"
-                        data-bs-target="#listCategoryModal">Editar categorías
+                <label>
+                    <button type="button" class="button-new-category dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="false" data-bs-auto-close="outside">
+                        Crear categoría
                     </button>
-                    <br>
-                    <br>
+                    <form (ngSubmit)="saveCategory()" class="dropdown-menu p-4">
+                        <div class="mb-3">
+                            <label for="exampleDropdownFormEmail2" class="form-label">Nombre</label>
+                            <input [(ngModel)]="newCategoryStringName" type="text" class="form-control"
+                                id="categoryName" name="newCategoryName">
+                        </div>
+                        <div class="mb-3">
+                        </div>
+                        <button [disabled]="!newCategoryStringName" type="submit" class="btn btn-success">Crear</button>
+                    </form>
+                </label>
 
-                    <input [(ngModel)]="event.important" type="checkbox" name="importantDate"
-                        style="width: 20px; height: 20px;">
-                    &nbsp;
-                    <label class="text-title fs-4">Destacado</label>
-                    <br>
-                    <br>
+                <button class="button-edit-category" data-bs-toggle="modal" data-bs-target="#listCategoryModal">Editar
+                    categorías
+                </button>
+                <br>
+                <br>
 
-                    <button (click)="saveEvent()" [disabled]="!event.title" class="btn btn-success">Publicar</button>
-                </form>
+                <input [(ngModel)]="event.important" type="checkbox" name="importantDate"
+                    style="width: 20px; height: 20px;">
+                &nbsp;
+                <label class="text-title fs-4">Destacado</label>
+                <br>
+                <br>
 
-                <!-- FIN FORMULARIO DE EVENTOS -->
-            </div>
+                <button (click)="saveEvent()" [disabled]="!event.title" class="btn btn-success">Publicar</button>
+            </form>
+
+            <!-- FIN FORMULARIO DE EVENTOS -->
         </div>
-
-        <div style="overflow-x: auto;" class="form-1">
-
-            <p class="fs-2 fw-bold">Eventos guardados</p>
-
-            <table class="table table-striped-columns ">
-                <thead>
-                    <tr>
-                        <th scope="col">Categoría</th>
-                        <th scope="col">Título</th>
-                        <th scope="col">Fecha de evento</th>
-                        <th scope="col">Acción</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let e of eventList">
-                        <!-- <td>{{e.category.name}}</td> -->
-                        <td>Categoria</td>
-                        <td>{{e.title}}</td>
-                        <td>{{e.eventDate}}</td>
-
-                        <td>
-                            <button (click)="getEventById(e.id)" class="btn btn-warning">Editar</button>&nbsp;
-                            <button (click)="deleteEvent(e.id)" class="btn btn-danger">Eliminar</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
     </div>
-</div>
+
+    <div style="overflow-x: auto;" class="form-1">
+
+        <p class="fs-2 fw-bold">Eventos guardados</p>
+
+        <table class="table table-striped-columns ">
+            <thead>
+                <tr>
+                    <th scope="col">Categoría</th>
+                    <th scope="col">Título</th>
+                    <th scope="col">Fecha de evento</th>
+                    <th scope="col">Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let e of eventList">
+                    <td>{{e.category ? e.category.name : ''}}</td>
+                    <td>{{e.title}}</td>
+                    <td>{{e.eventDate}}</td>
+
+                    <td>
+                        <button (click)="getEventById(e.id)" class="btn btn-warning">Editar</button>&nbsp;
+                        <button (click)="deleteEvent(e.id)" class="btn btn-danger">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
 
 
 

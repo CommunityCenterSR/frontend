@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UsersComponent } from '../../Forms/users/users.component';
+import { EventComponent } from '../../Forms/event/event.component';
+import { SectionsComponent } from '../../Forms/sections/sections.component';
 
 @Component({
   selector: 'app-admin',
@@ -8,7 +11,25 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AdminComponent{
 
-  
-  constructor(private router: Router, private activatedRoute: ActivatedRoute){}
+  currentForm: String = "users"; // Form. seleccionado al cargar la página
+  currentComponent: any = UsersComponent; // Componente seleccionado
+
+  // Para agregar nuevo botón en la sidebar
+  forms = [
+    { name: "Usuarios", form: "users", component: UsersComponent },
+    { name: "Eventos", form: "events", component: EventComponent },
+    { name: "Secciones", form: "sections", component: SectionsComponent },
+
+  ]
+
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
+
+  changeForm(section: string) {
+    const selectedSection = this.forms.find(s => s.form === section);
+    if (selectedSection) {
+      this.currentForm = section;
+      this.currentComponent = selectedSection.component;
+    }
+  }
 
 }

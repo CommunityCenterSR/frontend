@@ -29,9 +29,7 @@ export class EventComponent implements OnInit {
   getAllEvents() {
     this.eventService.getAllEvents().subscribe(
       data => {
-        console.log(data);
         this.eventList = data;
-
       },
       err => console.log(err)
 
@@ -51,8 +49,6 @@ export class EventComponent implements OnInit {
   saveEvent() {
     if (this.event.important) this.event.important = 1; // El evento es Destacado
     else this.event.important = 0; // El evento NO es Destacado
-
-    console.log(this.event);
 
     this.eventService.saveEvent(this.event).subscribe(
       data => {
@@ -96,7 +92,6 @@ export class EventComponent implements OnInit {
   getAllCategories() {
     this.eventService.getAllCategories().subscribe(
       data => {
-        console.log(data);
         this.categoryList = data;
       },
       err => console.log(err)

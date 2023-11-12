@@ -1,44 +1,33 @@
-<div class="container">
-    <div class="">
+<div class="row">
 
-        <div class="col-md-3">
-
-            <div class="admin-panel d-flex flex-column flex-shrink-0 p-3 text-white bg-dark">
-                <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                    <svg class="bi me-2" width="40" height="32">
-                        <use xlink:href="#bootstrap"></use>
-                    </svg>
-                    <span class="fs-4">Administrar</span>
-                </a>
-                <hr>
-                <ul class="nav nav-pills flex-column mb-auto">
-                    <li class="nav-item">
-                        <a routerLink="/admin/users" routerLinkActive="active" class="nav-link  text-white">
-                            Usuarios
-                        </a>
-                    </li>
-                    <li>
-                        <a routerLink="/admin/events" routerLinkActive="active" class="nav-link text-white">
-                            Eventos
-                        </a>
-                    </li>
-                    <li>
-                        <a routerLink="/admin/sections" routerLinkActive="active" class="nav-link text-white">
-                            Secciones
-                        </a>
-                    </li>
-                </ul>
-                <hr>
-            </div>
-
+    <!-- Comienzo Sidebar -->
+    <div class="col-md-3" style="margin-left: 5px">
+        <div class="admin-panel d-flex flex-column flex-shrink-0 p-3 text-white bg-dark">
+            <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <svg class="bi me-2" width="40" height="32">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+                <span class="fs-4">Administrar</span>
+            </a>
+            <hr />
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li *ngFor="let f of forms" class="nav-item">
+                    <button (click)="changeForm(f.form)" [ngClass]="{ active: currentForm === f.form }"
+                        class="nav-link text-white button-sidebar">
+                        {{ f.name }}
+                    </button>
+                </li>
+            </ul>
+            <hr />
         </div>
-
-
-        <div class="col-md-8">
-            <!-- Acá van los componentes de los formularios -->
-            <!-- <app-users></app-users>    CAUSA BUCLE INFINITO -->
-        </div>
-
     </div>
+    <!-- Fin Sidebar -->
+
+    <!-- Formulario -->
+    <div class="form-panel col-md-8">
+        <ng-container *ngComponentOutlet="currentComponent"></ng-container>
+    </div>
+    <!-- Fin Formulario -->
+
 
 </div>

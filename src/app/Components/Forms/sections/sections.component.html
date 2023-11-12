@@ -1,92 +1,82 @@
-<div class="container">
-    <div class="row">
-
-        <!-- Sidebar -->
-        <div class="col-md-3">
-            <app-admin></app-admin>
-        </div>
-        <!-- Sidebar -->
 
 
-        <!-- FORMULARIO DE SECCIONES -->
-        <div class="form-panel col-md-8">
-            <!-- Escribir el código acá adentro -->
-            <div class="form-2">
+  
 
-                <form (ngSubmit)="saveInfo('sobrenosotros')">
-                    <p class="fs-2 fw-bold">Sobre nosotros</p>
-                    <editor name="aboutUs" [(ngModel)]="aboutUs" [init]="{
+
+    <!-- FORMULARIO DE SECCIONES -->
+    <div class="form-panel col-md-12">
+        <!-- Escribir el código acá adentro -->
+        <div class="form-2">
+
+            <form (ngSubmit)="saveInfo('sobrenosotros')">
+                <p class="fs-2 fw-bold">Sobre nosotros</p>
+                <editor name="aboutUs" [(ngModel)]="aboutUs" [init]="{
                         base_url: '/tinymce', 
                         suffix: '.min'       
                       }">
                 </editor>
-                    <!-- <input type="file" id="img" name="img" accept="image/*"> -->
-                    <br><br>
-                    <button [disabled]="!aboutUs" class="btn btn-success">Actualizar</button>
-                    <!-- <button class="btn btn-success">Actualizar</button> -->
-                </form>
-            </div>
-            <div class="form-1">
-                <form (ngSubmit)="saveInfo('telefono')">
-                    <p class="fs-2 fw-bold">Información de contacto</p>
-                    <p class="text-title">Teléfono</p>
-                    <input [(ngModel)]="phone" class="form-control input-small" type="text" name="phone" id="">
-                    <button [disabled]="!phone" class="btn btn-success">Actualizar</button>
-                </form>
-                <br>
-                <form (ngSubmit)="saveInfo('direccion')">
-                    <p class="text-title">Dirección</p>
-                    <input [(ngModel)]="address" class="form-control input-small" type="text" name="address" id="">
-                    <button [disabled]="!address" class="btn btn-success">Actualizar</button>
-                </form>
-            </div>
-
-            <div class="form-2">
-                <form (ngSubmit)="saveInfo('whatsapp')">
-                    <p class="fs-2 fw-bold">Redes sociales</p>
-                    <p class="text-title">WhatsApp</p>
-
-                    <input [(ngModel)]="whatsappLink" class="form-control input-small" type="text" name="instagram"
-                        id="" placeholder="Link a whatsapp">
-                    <button [disabled]="!whatsappLink" class="btn btn-success">Actualizar</button><br><br>
-                </form>
-                <form (ngSubmit)="saveInfo('facebook')">
-                    <p class="text-title">Facebook</p>
-
-                    <input [(ngModel)]="facebookLink" class="form-control input-small" type="text" name="facebook" id=""
-                        placeholder="Link a facebook">
-                    <button [disabled]="!facebookLink" class="btn btn-success">Actualizar</button>
-                </form>
-            </div>
-
-
-            <div class="form-1" style="padding-right: 30px;">
-                <p class="fs-2 text-title fw-bold">Datos guardados</p>
-                <br>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Tipo</th>
-                            <th scope="col">Contenido</th>
-                            <th scope="col">Acción</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let i of information">
-                            <td>{{i.type}}</td>
-                            <td>{{i.content}}</td>
-                            <td>
-                                <button (click)="deleteInfo(i.id)" class="btn btn-danger">Eliminar</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
+                <!-- <input type="file" id="img" name="img" accept="image/*"> -->
+                <br><br>
+                <button [disabled]="!aboutUs" class="btn btn-success">Actualizar</button>
+                <!-- <button class="btn btn-success">Actualizar</button> -->
+            </form>
         </div>
-        <!-- FIN FORMULARIO DE SECCIONES -->
+        <div class="form-1">
+            <form (ngSubmit)="saveInfo('telefono')">
+                <p class="fs-2 fw-bold">Información de contacto</p>
+                <p class="text-title">Teléfono</p>
+                <input [(ngModel)]="phone" class="form-control input-small" type="text" name="phone" id="">
+                <button [disabled]="!phone" class="btn btn-success">Actualizar</button>
+            </form>
+            <br>
+            <form (ngSubmit)="saveInfo('direccion')">
+                <p class="text-title">Dirección</p>
+                <input [(ngModel)]="address" class="form-control input-small" type="text" name="address" id="">
+                <button [disabled]="!address" class="btn btn-success">Actualizar</button>
+            </form>
+        </div>
+
+        <div class="form-2">
+            <form (ngSubmit)="saveInfo('whatsapp')">
+                <p class="fs-2 fw-bold">Redes sociales</p>
+                <p class="text-title">WhatsApp</p>
+
+                <input [(ngModel)]="whatsappLink" class="form-control input-small" type="text" name="instagram" id=""
+                    placeholder="Link a whatsapp">
+                <button [disabled]="!whatsappLink" class="btn btn-success">Actualizar</button><br><br>
+            </form>
+            <form (ngSubmit)="saveInfo('facebook')">
+                <p class="text-title">Facebook</p>
+
+                <input [(ngModel)]="facebookLink" class="form-control input-small" type="text" name="facebook" id=""
+                    placeholder="Link a facebook">
+                <button [disabled]="!facebookLink" class="btn btn-success">Actualizar</button>
+            </form>
+        </div>
 
 
+        <div class="form-1" style="padding-right: 30px;">
+            <p class="fs-2 text-title fw-bold">Datos guardados</p>
+            <br>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Contenido</th>
+                        <th scope="col">Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let i of information">
+                        <td>{{i.type}}</td>
+                        <td>{{i.content}}</td>
+                        <td>
+                            <button (click)="deleteInfo(i.id)" class="btn btn-danger">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
     </div>
-</div>
+    <!-- FIN FORMULARIO DE SECCIONES -->
