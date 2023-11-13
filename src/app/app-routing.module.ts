@@ -12,6 +12,7 @@ import { FooterComponent } from './Components/Global/footer/footer.component';
 import { UsersComponent } from './Components/Forms/users/users.component';
 import { EventComponent } from './Components/Forms/event/event.component';
 import { SectionsComponent } from './Components/Forms/sections/sections.component';
+import { AuthGuard } from './Security/Helpers/auth.guard';
 
 const routes: Routes = [
   // Páginas
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: "about-us", component: AboutUsComponent},
   {path: "gallery", component: GalleryComponent},
   {path: "contact", component: ContactComponent},
+  // {path: "admin", component: AdminComponent, canActivate: [AuthGuard]}, // Activar cuando todo esté terminado
   {path: "admin", component: AdminComponent},
 
   // Formularios
@@ -32,7 +34,7 @@ const routes: Routes = [
   {path: "navbar", component: NavbarComponent},
   {path: "footer", component: FooterComponent},
 
-  {path: "**", redirectTo: ""}
+  {path: "**", redirectTo: "home"}
 ];
 
 @NgModule({

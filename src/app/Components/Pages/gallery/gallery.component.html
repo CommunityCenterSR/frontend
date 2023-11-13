@@ -170,3 +170,39 @@
     })();
 
 </script>
+
+
+
+
+
+
+
+
+<br><br><br><br><br><br><br>
+
+<div class="container" >
+    <div class="feature">
+      <figure class="featured-item image-holder r-3-2 transition prueba11">
+        <img [src]="images[currentIndex]" alt="Featured Image" class="prueba-img"/>
+      </figure>
+    </div>
+  
+    <div class="gallery-wrapper">
+      <div class="gallery">
+        <div class="item-wrapper" *ngFor="let image of images; let i = index">
+
+          <figure class="prueba-abajo gallery-item image-holder r-3-2 transition"
+            [class.active]="i === currentIndex"
+            (click)="changeImage(i)">
+            <img [src]="image" alt="Gallery Image" class="prueba22"/>
+          </figure >
+
+        </div>
+      </div>
+    </div>
+  
+    <div class="controls">
+      <button class="move-btn left">&larr;</button>
+      <button class="move-btn right">&rarr;</button>
+    </div>
+  </div>

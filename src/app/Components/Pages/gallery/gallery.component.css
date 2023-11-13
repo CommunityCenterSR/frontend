@@ -87,3 +87,48 @@ body {
 .move-btn:first-child {border-right: none;}
 .move-btn.left  { cursor: w-resize; } 
 move-btn.right { cursor: e-resize; } 
+
+
+
+.prueba22{
+	width: auto;
+}
+
+.prueba11{
+	overflow: hidden;
+	object-fit: contain;
+}
+
+.feature {
+	width: 700px; 
+	height: 500px; 
+	overflow: hidden;
+	
+	object-fit: cover;
+  }
+  
+  .figure {
+	display: flex;
+	justify-content: center;
+	align-items: center; 
+	width: 300px; 
+	height: 200px; 
+	overflow: hidden; 
+	
+	object-fit: cover;
+  }
+  
+  .prueba-img {
+	max-width: 100%;
+	max-height: 100%;
+	display: block; 
+	
+	object-fit: cover;
+  }
+
+  .prueba-abajo{
+	overflow: hidden;
+	width: 100%; 
+	height: 200px; 
+	object-fit: cover;
+  }

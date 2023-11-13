@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UsersComponent } from '../../Forms/users/users.component';
 import { EventComponent } from '../../Forms/event/event.component';
 import { SectionsComponent } from '../../Forms/sections/sections.component';
+import { LoginService } from 'src/app/Security/login.service';
 
 @Component({
   selector: 'app-admin',
@@ -22,7 +23,10 @@ export class AdminComponent{
 
   ]
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private router: Router, 
+    private activatedRoute: ActivatedRoute,
+    private loginService: LoginService
+    ) { }
 
   changeForm(section: string) {
     const selectedSection = this.forms.find(s => s.form === section);
@@ -30,6 +34,11 @@ export class AdminComponent{
       this.currentForm = section;
       this.currentComponent = selectedSection.component;
     }
+  }
+
+  logout(){
+    this.loginService.logout().subscribe();
+    this.router.navigate(["home"]);
   }
 
 }

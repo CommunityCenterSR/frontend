@@ -17,8 +17,9 @@ import { EventComponent } from './Components/Forms/event/event.component';
 import { SectionsComponent } from './Components/Forms/sections/sections.component';
 import { UsersComponent } from './Components/Forms/users/users.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
+import { AuthInterceptor } from './Security/Helpers/auth.interceptor';
 
 
 @NgModule({
@@ -46,7 +47,11 @@ import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
     FormsModule,
     EditorModule
   ],
-  providers: [{ provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' }],
+  providers: 
+    [
+      { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' },
+      {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
