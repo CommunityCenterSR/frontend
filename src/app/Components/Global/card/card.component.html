@@ -6,28 +6,23 @@
         <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             Categoría
         </button>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Ver todos</a></li>
+        <ul class="dropdown-menu" style="cursor: pointer;">
+            <li><a (click)="filterAllEvents()" class="dropdown-item">Ver todos</a></li>
+            <li><a (click)="filterByImportants()" class="dropdown-item">Destacados</a></li>
             <li>
                 <hr class="dropdown-divider">
             </li>
-            <li><a class="dropdown-item" href="#">Eventos</a></li>
-            <li><a class="dropdown-item" href="#">Talleres</a></li>
-            <li><a class="dropdown-item" href="#">Voluntariados</a></li>
+            <li *ngFor="let c of categoryList">
+                <a (click)="filterByCategory(c.name)" class="dropdown-item" >{{c.name}}</a>
+            </li>
         </ul>
         <!-- -------- -->
 
         <!-- Búsqueda -->
-        <form style="width: 250px; margin-left: 20px;" class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Buscar por título" aria-label="Search">
+        <form (ngSubmit)="filterByKeyword()" class="d-flex" role="search" style="width: 250px; margin-left: 20px;">
+            <input [(ngModel)]="keyword" name="keyword" class="form-control me-2" type="search" placeholder="Buscar por título" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Buscar</button>
         </form>
-        <!-- -------- -->
-
-        <!-- Calendario -->
-        <!-- <div class="calendar" style="margin-left: 20px;">
-            <input type="date">
-        </div> -->
         <!-- -------- -->
 
     </div>
@@ -39,22 +34,25 @@
 <!-- CARD -->
 <div class="row row-cols-1 row-cols-md-3 g-4">
 
-    <div *ngFor="let i of lista" class="col">
+    <div *ngFor="let e of eventList" class="col">
         <div class="card h-100">
-            <div class="badge">Categoría</div>
-            <img src="https://www.fcbarcelona.com/fcbarcelona/photo/2022/08/02/ae5252d1-b79b-4950-9e34-6e67fac09bb0/LeoMessi20092010_pic_fcb-arsenal62.jpg"
-                class="card-img-top" alt="...">
+            <div class="badge">{{e.category.name}}</div>
+            <div *ngIf="e.important == 1" class="badge badge-important">DESTACADO</div>
+            <img *ngIf="e.image != null" [src]="e.image" class="card-img-top" alt="Imagen de evento">
             <div class="card-body">
                 <h5 class="card-title">
-                    <a href="" class="text-decoration-none text-dark fs-3"> Card title </a>
+                    <a (click)="getEventDetails(e.id)" data-bs-toggle="modal" data-bs-target="#eventDetails" style="cursor: pointer;"
+                        class="text-decoration-none text-dark fs-3">
+                        {{e.title}}
+                    </a>
                 </h5>
-                <p class="card-text">
-                    <a href="" class="text-decoration-none text-dark"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, perferendis..</a>
+                <p class="card-text text-decoration-none text-dark">
+                    {{e.shortDescription}}
                 </p>
             </div>
 
 
-            <div class="card-footer">
+            <!-- <div class="card-footer">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt"
                     viewBox="0 0 16 16">
                     <path
@@ -63,7 +61,7 @@
                 </svg>
                 &nbsp;
                 <small class="text-body-secondary"> Lugar de evento</small>
-            </div>
+            </div> -->
             <div class="card-footer">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-calendar-date" viewBox="0 0 16 16">
@@ -73,9 +71,53 @@
                         d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
                 </svg>
                 &nbsp;
-                <small class="text-body-secondary">Fecha y hora</small>
+                <small class="text-body-secondary">Fecha: {{e.eventDate | date: 'dd MMMM HH:mm'}}</small>
             </div>
         </div>
     </div>
 </div>
 <!-- -------------------- -->
+
+
+<!-- Modal Info Evento -->
+<div class="modal fade modal-xl" id="eventDetails" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Detalles</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div *ngIf="event.important == 1" class=" modal-badge modal-badge-important">DESTACADO</div>
+                <div *ngIf="event.image != null" class="d-flex align-items-center justify-content-center">
+                    <img [src]="event.image" alt="" class="img-fluid">
+                </div>
+                <div>
+                    <div class="modal-badge">{{event.category ? event.category.name : ''}}</div>
+                    <p class="fs-2 fw-bold" style="line-height: 1.5;">
+                        {{event.title}}</p>
+                    <p class="fs-5 fw-normal" style="line-height: 0.1;">
+                        Fecha de evento:
+                        {{event.eventDate | date: 'dd MMMM HH:mm'}}</p>
+                </div>
+                <br>
+                <div>
+                    <p>{{event.shortDescription}}</p>
+                </div>
+                <br>
+                <div>
+                    <p [innerHTML]="event.longDescription"></p>
+                </div>
+                <hr>
+                <small class="text-body-secondary">
+                    Fecha de publicación:
+                    {{event.createdAt | date: 'dd MMMM HH:mm'}}
+                </small>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ------------------- -->

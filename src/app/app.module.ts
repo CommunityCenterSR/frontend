@@ -50,7 +50,7 @@ import { AuthInterceptor } from './Security/Helpers/auth.interceptor';
   providers: 
     [
       { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' },
-      {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+      {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
     ],
   bootstrap: [AppComponent]
 })

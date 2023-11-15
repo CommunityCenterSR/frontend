@@ -3,8 +3,8 @@
     <div class="form-2">
         <form (ngSubmit)="saveUser()" class="register-form">
             <p class="fs-2 fw-bold">Registrar administrador</p>
-            <p class="text-title">Nombre de usuario</p>
-            <input [(ngModel)]="newUser.name" class="form-control input-small" type="text" name="name" id="">
+            <p class="text-title">Email</p>
+            <input [(ngModel)]="newUser.email" class="form-control input-small" type="email" name="email" id="">
 
             <p class="text-title">Contraseña</p>
             <input [(ngModel)]="newUser.password" class="form-control input-small" type="text" name="password" id="">
@@ -19,15 +19,13 @@
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Nombre admin</th>
-                    <th scope="col">¿Email?</th>
+                    <th scope="col">Email</th>
                     <th scope="col">Acción</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let u of usersRegistered">
                     <th>{{u.id}}</th>
-                    <td>{{u.name}}</td>
                     <td>{{u.email}}</td>
                     <td><button (click)="confirmDelete(u.id)" type="button" class="btn btn-danger">Eliminar</button>
                     </td>
