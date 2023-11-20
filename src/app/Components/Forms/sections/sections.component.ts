@@ -43,7 +43,7 @@ export class SectionsComponent implements OnInit{
     switch(type){
       case "sobrenosotros": this.newInfo.content = this.aboutUs;       break;
       case "telefono":      this.newInfo.content = this.phone;         break;
-      case "direccion":     this.newInfo.content = this.address;       break;
+      case "email":     this.newInfo.content = this.address;       break;
       case "whatsapp":     this.newInfo.content = this.whatsappLink; break;
       case "facebook":      this.newInfo.content = this.facebookLink;  break;
     }

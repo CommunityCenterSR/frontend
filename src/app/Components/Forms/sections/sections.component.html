@@ -29,9 +29,9 @@
                 <button [disabled]="!phone" class="btn btn-success">Actualizar</button>
             </form>
             <br>
-            <form (ngSubmit)="saveInfo('direccion')">
-                <p class="text-title">Dirección</p>
-                <input [(ngModel)]="address" class="form-control input-small" type="text" name="address" id="">
+            <form (ngSubmit)="saveInfo('email')">
+                <p class="text-title">Email</p>
+                <input [(ngModel)]="address" class="form-control input-small" type="text" name="email" id="">
                 <button [disabled]="!address" class="btn btn-success">Actualizar</button>
             </form>
         </div>
