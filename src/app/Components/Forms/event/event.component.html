@@ -46,7 +46,12 @@
                 <br>
 
                 <p class="text-title fs-4">Imagen</p>
-                <input type="file" accept="image/jpeg, image/png" id="imageInput" name="image">
+                <input type="file" 
+                    accept=".png, .jpg, .jpeg"
+                    (change)="uploadImage($event)" 
+                    id="imageInput" 
+                    name="image">
+                <img src="{{imageLoaded}}" alt="" width="100px">
                 <br>
                 <br>
 
@@ -68,12 +73,12 @@
                     <form (ngSubmit)="saveCategory()" class="dropdown-menu p-4">
                         <div class="mb-3">
                             <label for="exampleDropdownFormEmail2" class="form-label">Nombre</label>
-                            <input [(ngModel)]="newCategoryStringName" type="text" class="form-control"
+                            <input [(ngModel)]="newCategoryNameString" type="text" class="form-control"
                                 id="categoryName" name="newCategoryName">
                         </div>
                         <div class="mb-3">
                         </div>
-                        <button [disabled]="!newCategoryStringName" type="submit" class="btn btn-success">Crear</button>
+                        <button [disabled]="!newCategoryNameString" type="submit" class="btn btn-success">Crear</button>
                     </form>
                 </label>
 

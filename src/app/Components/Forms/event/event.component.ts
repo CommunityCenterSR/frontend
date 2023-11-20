@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Category, Event } from 'src/app/Models/event';
 import { EventService } from 'src/app/Services/event.service';
+import { StorageService } from 'src/app/Services/storage.service';
 
 @Component({
   selector: 'app-event',
@@ -15,9 +16,9 @@ export class EventComponent implements OnInit {
   event: Event = new Event();
   category: Category = new Category();
 
-  newCategoryStringName: string;
+  newCategoryNameString: string;
 
-  constructor(private eventService: EventService) { }
+  constructor(private eventService: EventService, private storageService: StorageService) { }
 
   ngOnInit(): void {
     this.event.category = this.category;
@@ -102,12 +103,12 @@ export class EventComponent implements OnInit {
   saveCategory() {
 
     let newCategory: Category = new Category();
-    newCategory.name = this.newCategoryStringName;
+    newCategory.name = this.newCategoryNameString;
 
     this.eventService.saveCategory(newCategory).subscribe(
       data => {
         alert("Categoría creada correctamente")
-        this.newCategoryStringName = "";
+        this.newCategoryNameString = "";
         this.getAllCategories();
       },
       err => alert("Error al crear categoría")
@@ -127,7 +128,25 @@ export class EventComponent implements OnInit {
 
 
   }
+  // ------------------------------------------
+  // Cargar imagen a Firebase
 
+  imageLoaded: any;
+  uploadImage(event: any){
+    let file = event.target.files;
+    let reader = new FileReader();
+
+    reader.readAsDataURL(file[0]);
+    reader.onloadend = () => {
+      this.imageLoaded = reader.result;
+      this.storageService.uploadImage("CIC_" + Date.now(), reader.result)
+        .then(urlImage => {
+          this.event.image = urlImage? urlImage : 'null';
+        });
+    }
+
+    
+  }
 
   // ------------------------------------------
   exitEditMode() {
