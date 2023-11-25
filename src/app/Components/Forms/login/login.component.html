@@ -1,1 +1,17 @@
-<p>login works!</p>
+<body>
+    <div class="login-page">
+        <div class="form">
+          <strong class="fs-4">Iniciar sesión</strong>
+          <br><br>
+
+          <form #form="ngForm" (ngSubmit)="login(form)" class="login-form">
+            <input [(ngModel)]="creds.email" name="email" type="text" placeholder="Email" required>
+            <input [(ngModel)]="creds.password" name="password" type="password" placeholder="Contraseña" required>
+            <button>Ingresar</button>
+            <!-- <p class="message">¿No estás registrado? <a href="pagina_de_registro.html">Crear una cuenta</a></p>           -->
+          </form>
+          
+        </div>
+      </div>
+      <br><br><br><br>
+</body>

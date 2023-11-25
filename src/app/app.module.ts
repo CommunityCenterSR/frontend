@@ -15,6 +15,12 @@ import { FooterComponent } from './Components/Global/footer/footer.component';
 import { CardComponent } from './Components/Global/card/card.component';
 import { EventComponent } from './Components/Forms/event/event.component';
 import { SectionsComponent } from './Components/Forms/sections/sections.component';
+import { UsersComponent } from './Components/Forms/users/users.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
+import { AuthInterceptor } from './Security/Helpers/auth.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -31,12 +37,21 @@ import { SectionsComponent } from './Components/Forms/sections/sections.componen
     CardComponent,
     EventComponent,
     SectionsComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule,
+    EditorModule
   ],
-  providers: [],
+  providers: 
+    [
+      { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' },
+      {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

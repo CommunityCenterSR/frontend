@@ -1,89 +1,34 @@
-<div class="container">
-    <div class="row ">
+<div class="row">
 
-        <div class="col-md-3">
-
-            <div class="admin-panel d-flex flex-column flex-shrink-0 p-3 text-white bg-dark">
-                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                    <svg class="bi me-2" width="40" height="32">
-                        <use xlink:href="#bootstrap"></use>
-                    </svg>
-                    <span class="fs-4">Administrar</span>
-                </a>
-                <hr>
-                <ul class="nav nav-pills flex-column mb-auto">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link active" aria-current="page">
-                            <svg class="bi me-2" width="16" height="16">
-                                <use xlink:href="#home"></use>
-                            </svg>
-                            Usuarios
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link text-white">
-                            <svg class="bi me-2" width="16" height="16">
-                                <use xlink:href="#speedometer2"></use>
-                            </svg>
-                            Eventos
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link text-white">
-                            <svg class="bi me-2" width="16" height="16">
-                                <use xlink:href="#table"></use>
-                            </svg>
-                            Secciones
-                        </a>
-                    </li>
-                </ul>
-                <hr>
-            </div>
-
+    <!-- Comienzo Sidebar -->
+    <div class="col-md-3" style="margin-left: 5px">
+        <div class="admin-panel d-flex flex-column flex-shrink-0 p-3 text-white bg-dark">
+            <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <svg class="bi me-2" width="40" height="32">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+                <span class="fs-4">Administrar</span>
+            </a>
+            <hr />
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li *ngFor="let f of forms" class="nav-item">
+                    <button (click)="changeForm(f.form)" [ngClass]="{ active: currentForm === f.form }"
+                        class="nav-link text-white button-sidebar">
+                        {{ f.name }}
+                    </button>
+                </li>
+            </ul>
+            <hr />
+            <button (click)="logout()" class="btn btn-danger">Cerrar sesión</button>
         </div>
-
-        <div class="form-panel col-md-8">
-            <div>
-                <form>
-                    <p class="text-title">Registrar nuevo usuario</p>
-                    <label for="name">Nombre:</label><br>
-                    <input class="form-input" type="text" id="name" name="name"><br>
-
-                    <label for="email">Email:</label><br>
-                    <input class="form-input" type="email" id="email" name="email"><br>
-
-                    <label for="password">Contraseña:</label><br>
-                    <input class="form-input" type="text" id="password" name="password"><br><br>
-
-                    <input type="submit" value="Registrar" name="" id="">
-                </form>
-            </div>
-            <br>
-            <hr>
-
-
-            <p class="text-title">Usuarios registrados</p>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Acción</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                    </tr>
-                </tbody>
-            </table>
-
-        </div>
-
     </div>
+    <!-- Fin Sidebar -->
+
+    <!-- Formulario -->
+    <div class="form-panel col-md-8">
+        <ng-container *ngComponentOutlet="currentComponent"></ng-container>
+    </div>
+    <!-- Fin Formulario -->
+
 
 </div>

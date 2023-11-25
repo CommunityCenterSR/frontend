@@ -1,0 +1,25 @@
+
+.img-small{
+    height: 25px;
+    margin-right: 20px;
+}
+
+.text-title{
+    margin: 0;
+    padding: 0;
+}
+
+.input-small{
+    width: 300px;
+    margin: 5px 0px 5px 0px;
+}
+
+.form-1{
+    background-color: rgb(204, 204, 204);
+    padding: 10px 0px 10px 30px;
+}
+
+.form-2{
+    background-color: rgb(235, 235, 235);
+    padding: 10px 30px 10px 30px;
+}
