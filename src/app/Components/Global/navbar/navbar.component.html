@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg ">
+<!-- <nav class="navbar navbar-expand-lg ">
     <div class="container-fluid">
     <a class="navbar-brand" routerLink="/home"><img src="../../../../assets/images/communityCenter-01.jpg" alt="logo" class="w-50 logo m-1"></a>
     
@@ -21,4 +21,61 @@
         </ul>
     </div>
     </div>
+</nav> -->
+
+<nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+    <div class="container-fluid">
+
+        <a class="navbar-brand" routerLink="/home">
+            <img class="logo" src="assets/images/communityCenter-01.jpg" alt="logo">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="home">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="modal" data-bs-target="#modalDonaciones" 
+                    style="cursor: pointer;">Donaciones</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="about-us">Sobre nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="contact" >Contacto</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
 </nav>
+
+
+
+
+<!-- MODAL DONACIONES -->
+
+  <div class="modal fade" id="modalDonaciones" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Donaciones</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Poner acá lista de links a mercado pago para hacer donaciones
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- FIN MODAL DONACIONES -->

@@ -1,4 +1,37 @@
-/*Variables globales*/
+
+
+.navbar{
+    font-size: 22px;
+    background-color: #046cf5;
+    
+
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center center;
+    background: 
+    linear-gradient(#046cf5, #046cf5c7),
+    url('../../../../assets/images/communityCenter-04.jpg');
+}
+
+.nav-link{
+    color: rgba(255, 255, 255, 0.774);
+    margin-right: 15px;
+}
+
+.nav-link:hover{
+    color: white;
+    background-color: rgba(240, 248, 255, 0.034);
+}
+
+.logo{
+    width: 90px;
+    height: 90px;
+    border-radius: 15%;
+}
+
+
+
+/* 
 
 *{
     padding: 0;
@@ -7,11 +40,8 @@
 a{
     text-decoration: none;
 }
-.logo{
-    border-radius: 15%;
-}
 
-/*Colorear la navbar con verde olivo*/
+
 .navbar {
     background-color: #44a43a;
     background-size: cover; 
@@ -51,4 +81,4 @@ a{
     .navbar {
         background-size: 100% auto; 
     }
-}
+} */
