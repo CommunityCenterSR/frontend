@@ -1,5 +1,5 @@
 body {
-    background-image: url('../../../../assets/images/communityCenter-05.jpg'); 
+    background-image: url('../../../../assets/images/communityCenter-about-us-05.jpg'); 
     background-size: cover; 
     background-attachment: fixed; 
     background-position: center; 
@@ -12,7 +12,7 @@ body::before {
     right: 0;
     bottom: 0;
     left: 0;
-    background-image: url('../../../../assets/images/communityCenter-05.jpg');
+    background-image: url('../../../../assets/images/communityCenter-about-us-05.jpg');
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
