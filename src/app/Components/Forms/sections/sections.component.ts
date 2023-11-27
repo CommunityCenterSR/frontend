@@ -14,11 +14,12 @@ export class SectionsComponent implements OnInit{
 
   information: Section[] = [];
 
-  aboutUs: string;
   whatsappLink: string;
-  facebookLink: string;
   phone: string;
-  address: string;
+  email: string;
+
+  donacion_link: string;
+  donacion_500: string;
 
 
   constructor(private sectionService: SectionService){}
@@ -29,11 +30,8 @@ export class SectionsComponent implements OnInit{
 
   getAllInfo(){
     this.sectionService.getAllInfo().subscribe(
-      data => {
-        this.information = data
-      },
+      data => this.information = data,
       err => console.error(err)
-      
     )
   }
 
@@ -41,14 +39,13 @@ export class SectionsComponent implements OnInit{
     this.newInfo.type = type;
 
     switch(type){
-      case "sobrenosotros": this.newInfo.content = this.aboutUs;       break;
-      case "telefono":      this.newInfo.content = this.phone;         break;
-      case "email":     this.newInfo.content = this.address;       break;
-      case "whatsapp":     this.newInfo.content = this.whatsappLink; break;
-      case "facebook":      this.newInfo.content = this.facebookLink;  break;
+      case "telefono": this.newInfo.content = this.phone; break;
+      case "email":    this.newInfo.content = this.email; break;
+      case "whatsapp": this.newInfo.content = this.whatsappLink; break;
+      case "donacion_link":   this.newInfo.content = this.donacion_link; break;
+      case "donacion_500":   this.newInfo.content = this.donacion_500; break;
     }
     console.log(this.newInfo);
-    
 
     this.sectionService.saveInfo(this.newInfo).subscribe(
       data => {
@@ -59,7 +56,6 @@ export class SectionsComponent implements OnInit{
       err => alert("Error, no se pudo actualizar la información")
     )
   }
-
 
   deleteInfo(infoId: number){
     if(confirm("¿Estás seguro que querés eliminar la información?")){

@@ -18,6 +18,7 @@
                 <button [disabled]="!aboutUs" class="btn btn-success">Actualizar</button>
             </form>
         </div> -->
+
         <div class="form-2">
             <form (ngSubmit)="saveInfo('telefono')">
                 <p class="fs-2 fw-bold">Información de contacto</p>
@@ -28,12 +29,32 @@
             <br>
             <form (ngSubmit)="saveInfo('email')">
                 <p class="text-title">Email</p>
-                <input [(ngModel)]="address" class="form-control input-small" type="text" name="email" id="">
-                <button [disabled]="!address" class="btn btn-success">Actualizar</button>
+                <input [(ngModel)]="email" class="form-control input-small" type="text" name="email" id="">
+                <button [disabled]="!email" class="btn btn-success">Actualizar</button>
             </form>
         </div>
 
         <div class="form-1">
+
+            <p class="fs-2 fw-bold">Donaciones Mercado Pago</p>
+
+            <form (ngSubmit)="saveInfo('donacion_500')">
+                <p class="text-title">Link $500</p>
+                <input [(ngModel)]="donacion_500" class="form-control input-small" type="text" name="instagram" id=""
+                    placeholder="Link de pago">
+                <button [disabled]="!donacion_500" class="btn btn-success">Actualizar</button><br><br>
+            </form>
+
+            <form (ngSubmit)="saveInfo('donacion_link')">
+                <p class="text-title">Link para elegir monto</p>
+                <input [(ngModel)]="donacion_link" class="form-control input-small" type="text" name="instagram" id=""
+                    placeholder="Link de pago">
+                <button [disabled]="!donacion_link" class="btn btn-success">Actualizar</button><br><br>
+            </form>
+
+        </div>
+
+        <div class="form-2">
             <form (ngSubmit)="saveInfo('whatsapp')">
                 <p class="fs-2 fw-bold">Redes sociales</p>
                 <p class="text-title">WhatsApp</p>
@@ -41,13 +62,6 @@
                 <input [(ngModel)]="whatsappLink" class="form-control input-small" type="text" name="instagram" id=""
                     placeholder="Link a whatsapp">
                 <button [disabled]="!whatsappLink" class="btn btn-success">Actualizar</button><br><br>
-            </form>
-            <form (ngSubmit)="saveInfo('facebook')">
-                <p class="text-title">Facebook</p>
-
-                <input [(ngModel)]="facebookLink" class="form-control input-small" type="text" name="facebook" id=""
-                    placeholder="Link a facebook">
-                <button [disabled]="!facebookLink" class="btn btn-success">Actualizar</button>
             </form>
         </div>
 
