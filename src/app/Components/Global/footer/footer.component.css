@@ -1,0 +1,16 @@
+footer {
+    text-align: center;
+    background-color: #333;
+    color: #c9c6c6;
+}
+
+.container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.link{
+    color: gray;
+    text-decoration: none;
+}
