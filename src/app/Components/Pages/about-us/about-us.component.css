@@ -1,5 +1,6 @@
 body {
-    background-image: url('../../../../assets/images/communityCenter-about-us-05.jpg'); 
+    background: linear-gradient(rgba(5, 7, 12, 0.2), rgba(5, 7, 12, 0.2)),
+    url('../../../../assets/images/communityCenter-about-us-05.jpg') no-repeat center center fixed;
     background-size: cover; 
     background-attachment: fixed; 
     background-position: center; 
@@ -12,18 +13,29 @@ body::before {
     right: 0;
     bottom: 0;
     left: 0;
-    background-image: url('../../../../assets/images/communityCenter-about-us-05.jpg');
+    background: linear-gradient(rgba(5, 7, 12, 0.2), rgba(5, 7, 12, 0.2)),
+    url('../../../../assets/images/communityCenter-about-us-05.jpg') no-repeat center center fixed;
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    opacity: 0.5; 
     z-index: -1; 
 }
 section {
-    background-color: rgba(157, 216, 136, 0.8); 
+    background-color: rgba(141, 150, 233, 0.932); 
+    border-radius: 4px;
     margin: 2rem;
     
 }
-article{
+article img{
     overflow: hidden;
+    border-radius: 4px;
+}
+
+article p{
+    font-size: 18px;
+}
+
+.Main_Titulo{
+    font-size: 50px;
+    font-weight: 700;
 }

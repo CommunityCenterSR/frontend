@@ -36,3 +36,13 @@
     max-width: 50%;
     margin: 1rem auto;
   }
+
+/* Media Query para pantallas mayores a 700px */
+@media screen and (min-width: 700px) {
+    
+    .width-modal1{
+        width: 50%;
+    }
+
+  }
+  
