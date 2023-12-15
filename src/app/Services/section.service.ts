@@ -17,7 +17,7 @@ export class SectionService {
   }
 
   getInfoByType(type: string): Observable<Section>{
-    return this.http.get<Section>(this.URL + "/" + type);
+    return this.http.get<Section>(this.URL + "/type/" + type);
   }
 
   saveInfo(info: Section){

@@ -18,21 +18,21 @@ const routes: Routes = [
   // Páginas
   {path: "home", component: HomeComponent},
   {path: "about-us", component: AboutUsComponent},
-  {path: "gallery", component: GalleryComponent},
   {path: "contact", component: ContactComponent},
-  // {path: "admin", component: AdminComponent, canActivate: [AuthGuard]}, // Activar cuando todo esté terminado
-  {path: "admin", component: AdminComponent},
+  {path: "gallery", component: GalleryComponent, canActivate: [AuthGuard]},
+  {path: "admin", component: AdminComponent, canActivate: [AuthGuard]}, 
+  // {path: "admin", component: AdminComponent},
 
   // Formularios
   {path: "login", component: LoginComponent},
-  {path: "admin/users", component: UsersComponent},
-  {path: "admin/events", component: EventComponent},
-  {path: "admin/sections", component: SectionsComponent},
-  {path: "admin/volunteer", component: VolunteerComponent},
+  {path: "admin/users", component: UsersComponent, canActivate: [AuthGuard]},
+  {path: "admin/events", component: EventComponent, canActivate: [AuthGuard]},
+  {path: "admin/sections", component: SectionsComponent, canActivate: [AuthGuard]},
+  {path: "admin/volunteer", component: VolunteerComponent, canActivate: [AuthGuard]},
 
   // Global
-  {path: "navbar", component: NavbarComponent},
-  {path: "footer", component: FooterComponent},
+  {path: "navbar", component: NavbarComponent, canActivate: [AuthGuard]},
+  {path: "footer", component: FooterComponent, canActivate: [AuthGuard]},
 
   {path: "**", redirectTo: "home"}
 ];

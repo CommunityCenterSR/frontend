@@ -9,6 +9,7 @@ import { User } from '../Models/user';
 export class UserService {
 
   URL: string = "http://localhost:8080/api/v1/users"
+  URL_AUTH: string = "http://localhost:8080/api/v1/auth"
 
   constructor(private http: HttpClient) { }
 
@@ -17,7 +18,7 @@ export class UserService {
   }
 
   saveUser(user: User): Observable<User>{
-    return this.http.post<User>(this.URL, user);
+    return this.http.post<User>(this.URL_AUTH + "/register", user);
   }
 
   deleteUser(userId: number){
