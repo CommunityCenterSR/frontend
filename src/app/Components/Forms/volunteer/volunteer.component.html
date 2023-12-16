@@ -9,24 +9,24 @@
       <div class="form-information-childs">
         <h2>¡Sumate como voluntario!</h2>
   
-        <form class="form">
+        <form (ngSubmit)="saveVolunteer()" class="form">
           <label>
             <i class='bx bx-user'></i>
-            <input type="text" placeholder="Nombre completo" name="nombre" required>
+            <input [(ngModel)]="volunteer.name" type="text" placeholder="Nombre completo" name="nombre" required>
           </label>
           <label>
             <i class='bx bx-envelope'></i>
-            <input type="email" placeholder="Email" name="email" required>
+            <input [(ngModel)]="volunteer.email" type="email" placeholder="Email" name="email" required>
           </label>
           <label>
             <i class='bx bx-phone'></i>
-            <input type="text" placeholder="Teléfono" name="telefono">
+            <input [(ngModel)]="volunteer.phone" type="text" placeholder="Teléfono" name="telefono">
           </label>
           <label>
             <i class='bx bx-location-plus'></i>
-            <input type="text" placeholder="Ciudad" name="ciudad">
+            <input [(ngModel)]="volunteer.city" type="text" placeholder="Ciudad" name="ciudad">
           </label>
-          <input type="submit" value="Inscribirme">
+          <input [disabled]="!volunteer.email" type="submit" value="Inscribirme">
         </form>
       </div>
     </div>

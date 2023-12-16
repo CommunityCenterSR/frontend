@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/Models/user';
+import { Volunteer } from 'src/app/Models/volunteer';
 import { UserService } from 'src/app/Services/user.service';
+import { VolunteerService } from 'src/app/Services/volunteer.service';
 
 @Component({
   selector: 'app-users',
@@ -10,13 +12,16 @@ import { UserService } from 'src/app/Services/user.service';
 export class UsersComponent implements OnInit{
 
   usersRegistered: User[] = [];
+  volunteerList: Volunteer[] = [];
 
   newUser: User = new User();
+  newVolunteer: Volunteer = new Volunteer();
 
-  constructor(private userService: UserService){}
+  constructor(private userService: UserService, private volunteerService: VolunteerService){}
 
   ngOnInit(): void {
-      this.getAllUsers();
+    this.getAllUsers();
+    this.getVolunteers();
   }
 
   getAllUsers(){
@@ -50,6 +55,29 @@ export class UsersComponent implements OnInit{
   confirmDelete(userId: number){
     if(confirm("¿Seguro que querés eliminar este administrador?")){
       this.deleteUser(userId);
+    }
+  }
+
+  // -------------------- Volunteers ------------------
+  getVolunteers(){
+    this.volunteerService.getAllVolunteers().subscribe(
+      data => {
+        this.volunteerList = data;
+      },
+      err => console.log(err)
+    )
+  }
+
+  deleteVolunteer(volunteerId: number){
+
+    if(confirm("Estás seguro de eliminar este voluntario?")){
+      this.volunteerService.deleteVolunteer(volunteerId).subscribe(
+        data => {
+          alert("Eliminado correctamente"),
+          this.getVolunteers();
+      },
+        err => alert("Error al eliminar voluntario")
+      )
     }
   }
 

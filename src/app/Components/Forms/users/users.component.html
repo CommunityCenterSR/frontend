@@ -33,6 +33,36 @@
             </tbody>
         </table>
     </div>
+
+    <div class="form-2">
+        <p class="fs-2 fw-bold">Lista de voluntarios</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Ciudad</th>
+                    <th scope="col">Mensaje</th>
+                    <th scope="col">Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let v of volunteerList">
+                    <th>{{v.id}}</th>
+                    <td>{{v.name}}</td>
+                    <td>{{v.email}}</td>
+                    <td>{{v.phone}}</td>
+                    <td>{{v.city}}</td>
+                    <td>{{v.message}}</td>
+                    <td><button (click)="deleteVolunteer(v.id)" type="button" class="btn btn-danger">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
     <br><br><br><br>
 
 </div>
